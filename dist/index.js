@@ -8615,12 +8615,10 @@ const readAnnotationsFile = async function (inputPath) {
     const inputContent = await fs__WEBPACK_IMPORTED_MODULE_2__.promises.readFile(inputPath, { encoding: 'utf8' })
     return JSON.parse(inputContent)
   } catch (err) {
-    if (err.code === 'ENOENT' && ignoreMissingFile) {
-      (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.info)(`Ignoring missing file at '${inputPath}' because 'ignore-missing-file' is true`)
-      return null
-    } else {
-      throw err
-    }
+    info("file -->"+ inputPath)
+    info (err.message)
+    info (err)
+    throw err
   }
 }
 
